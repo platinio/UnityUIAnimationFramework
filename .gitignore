@@ -39,3 +39,7 @@ Assets/scenes/sandboxes/*.unity*
 .vs/enfermeria-vr/v15/Server/sqlite3/storage.ide-wal
 .vs/enfermeria-vr/v15/Server/sqlite3/storage.ide-shm
 .vs/enfermeria-vr/v15/Server/sqlite3/db.lock
+.vs/PlatinioUITween/v15/Server/sqlite3/db.lock
+.vs/PlatinioUITween/v15/Server/sqlite3/storage.ide
+.vs/PlatinioUITween/v15/Server/sqlite3/storage.ide-shm
+.vs/PlatinioUITween/v15/Server/sqlite3/storage.ide-wal
