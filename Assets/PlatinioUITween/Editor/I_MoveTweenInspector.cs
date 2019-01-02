@@ -16,7 +16,7 @@ namespace PlatinioUITweeen
 
         protected virtual void OnSceneGUI()
         {
-
+            /*
             if(!Selection.Contains(((MoveTween) target).gameObject))
                 return;
 
@@ -38,8 +38,8 @@ namespace PlatinioUITweeen
                 }
 
             }
-
-                    }
+            */
+        }
 
     }
 
