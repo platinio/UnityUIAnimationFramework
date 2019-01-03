@@ -121,7 +121,7 @@ namespace Platinio.TweenEngine
         {
             return Vector3Tween(new Vector3(rect.position.x , rect.position.y , 0.0f) , new Vector3(pos.x, pos.y , 0.0f) , t).SetOnUpdate((Vector3 value) =>
             {
-                rect.position = new Vector2(value.x , value.y);
+                rect.anchoredPosition = new Vector2(value.x , value.y);
             });
         }
 

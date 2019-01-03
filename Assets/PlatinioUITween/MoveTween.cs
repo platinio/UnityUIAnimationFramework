@@ -51,10 +51,11 @@ namespace PlatinioUITweeen
             for (int n = 0; n < m_path.Count; n++)
             {
                 m_processedPath.Add(Vector2.Scale(m_path[n] - m_rectTransform.anchorMin, m_canvas.sizeDelta ) );
+                Debug.Log(m_processedPath[n]);
             }
 
-            Debug.Log(m_canvas.sizeDelta);
-
+            Debug.Log("Canvas size " + m_canvas.sizeDelta);
+            
             if (m_playOnAwake)
                 Play(m_delay);
 
