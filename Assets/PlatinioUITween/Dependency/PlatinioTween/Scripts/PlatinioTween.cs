@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using UnityEditor;
 
 namespace Platinio.TweenEngine
 {    
@@ -9,10 +10,11 @@ namespace Platinio.TweenEngine
     /// <summary>
     /// Tween engine
     /// </summary>
+
     public class PlatinioTween : Singleton<PlatinioTween>
     {
         #region PRIVATE
-        private List<BaseTween> m_tweens    = null;
+        [SerializeField] private List<BaseTween> m_tweens    = new List<BaseTween>();
         private int             m_counter   = 0;
         #endregion
 
@@ -23,13 +25,30 @@ namespace Platinio.TweenEngine
             m_tweens = new List<BaseTween>();
         }
 
+        private float m_lastEditorTime = float.MinValue;
+
         private void Update()
         {
+           
+
             for (int n = 0 ; n < m_tweens.Count ; n++)
-            {                
-                m_tweens[n].Update();
+            {               
+                m_tweens[n].Update(Time.deltaTime);
             }
         }
+
+        private void EditorUpdate()
+        {           
+            float deltaTime = (float)UnityEditor.EditorApplication.timeSinceStartup - m_lastEditorTime;
+            m_lastEditorTime = (float)UnityEditor.EditorApplication.timeSinceStartup;
+
+            for (int n = 0; n < m_tweens.Count; n++)
+            {
+                m_tweens[n].Update(deltaTime);
+            }
+
+        }
+
         #endregion
 
         private int GenerateId()
@@ -51,11 +70,14 @@ namespace Platinio.TweenEngine
             tween.SetOnComplete( delegate { m_tweens.Remove(tween); } );
             m_tweens.Add(tween);
 
+            EditorApplication.update = EditorUpdate;
+
             return tween;
         }
 
         public void CancelTween(int id)
-        {
+        {            
+
             for (int n = 0; n < m_tweens.Count; n++)
             {
                 if (m_tweens[n].id == id)
@@ -64,6 +86,11 @@ namespace Platinio.TweenEngine
                     break;
                 }
             }
+        }
+
+        public void CancelAllTweens()
+        {
+            m_tweens = new List<BaseTween>();
         }
 
 

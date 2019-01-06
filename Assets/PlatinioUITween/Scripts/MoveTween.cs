@@ -16,6 +16,7 @@ namespace PlatinioUITweeen
         private float m_pathDistance = 0.0f;
         private Vector3 m_startingPosition = Vector3.zero;
         private int m_currentPathIndex = 0;
+        
 
         private List<Vector2> m_processedPath = null;
        

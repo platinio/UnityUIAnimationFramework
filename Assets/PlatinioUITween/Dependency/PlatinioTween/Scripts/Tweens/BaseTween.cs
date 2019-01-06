@@ -6,10 +6,11 @@ namespace Platinio.TweenEngine
     /// <summary>
     /// Base tween class
     /// </summary>
+    [System.Serializable]
     public abstract class BaseTween 
     {
         #region PROTECTED
-        protected int               m_id                = 0;
+        [SerializeField] protected int               m_id                = 0;
         protected float             m_delay             = 0.0f;
         protected float             m_startTime         = 0.0f;
         protected float             m_duration          = 0.0f;
@@ -29,7 +30,7 @@ namespace Platinio.TweenEngine
         /// <summary>
         /// Called to update this tween
         /// </summary>
-        public abstract void Update();
+        public abstract void Update(float delta);
                 
         /// <summary>
         /// Set ease type

@@ -113,6 +113,47 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &134517809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 134517811}
+  - component: {fileID: 134517810}
+  m_Layer: 0
+  m_Name: PlatinioTween
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &134517810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 134517809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a9ca174fc52464e802851465a793ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_destroyOnLoad: 1
+--- !u!4 &134517811
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 134517809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &368754678
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 400, y: -300}
+  m_AnchoredPosition: {x: 416.31082, y: -39.80573}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1885246538
@@ -557,11 +598,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0facaf251d03c27499f74dabaa40f938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveAnimation:
-    m_length: 2
-    m_path:
-    - {x: 1, y: 0}
-    - {x: 0, y: 1}
+  m_animationList:
+  - m_name: Enter
+    m_moveAnimation:
+      m_length: 3
+      m_ease: 0
+      m_path:
+      - {x: 0, y: 0}
+      - {x: 1, y: 1}
+      - {x: 0, y: 0.48}
+      - {x: 0.36, y: 0}
+      - {x: 0.36, y: 1}
+      - {x: 0, y: 0}
+    m_useMoveAnimation: 1
+    m_playOnAwake: 1
+    m_loop: 1
 --- !u!114 &1885246539
 MonoBehaviour:
   m_ObjectHideFlags: 0

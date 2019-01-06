@@ -24,17 +24,21 @@ namespace Platinio.TweenEngine
         /// <summary>
         /// called every frame
         /// </summary>
-        public override void Update()
+        public override void Update(float delta)
         {
             //wait a delay
             if (m_delay > 0.0f)
             {
-                m_delay -= Time.deltaTime;
+                m_delay -= delta;
                 return;
             }
 
+            
+
             //start counting time
-            m_currentTime += Time.deltaTime;
+            m_currentTime += delta;
+
+            Debug.Log(m_currentTime);
 
             //if time ends
             if (m_currentTime >= m_duration)
