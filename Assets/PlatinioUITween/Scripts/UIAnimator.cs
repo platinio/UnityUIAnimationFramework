@@ -7,8 +7,10 @@ namespace PlatinioUITweeen
     {
         [SerializeField] private List<UIAnimation> m_animationList = new List<UIAnimation>();
 
+       
         private RectTransform m_canvas = null;
 
+        
         public RectTransform Canvas
         {
             get
@@ -24,18 +26,15 @@ namespace PlatinioUITweeen
         public List<UIAnimation> AnimationList { get { return m_animationList; } }
 
 
-        private void Start()
+        private void Awake()
         {
+            Construct();
+
             for (int n = 0 ; n < m_animationList.Count ; n++)
-            {
+            {                
                 if (m_animationList[n].PlayOnAwake)
                 {
-                    if (m_animationList[n].UseMoveAnimation)
-                    {
-                        m_animationList[n].MoveAnimation.Construct(this);
-                        m_animationList[n].MoveAnimation.Play(m_animationList[n].Loop);
-                    }
-                       
+                    m_animationList[n].Play();                    
                 }
             }
             
@@ -67,6 +66,14 @@ namespace PlatinioUITweeen
 
         }
 
+        public void Construct()
+        {
+            for (int n = 0; n < m_animationList.Count; n++)
+            {
+                m_animationList[n].MoveAnimation.Construct(this);
+            }
+        }
+
         private UIAnimation FindAnimationByName(string animationName)
         {
             for (int n = 0 ; n < m_animationList.Count ; n++)
@@ -83,10 +90,12 @@ namespace PlatinioUITweeen
         public void Play(string animationName)
         {
             UIAnimation animation = FindAnimationByName(animationName);
-
+            
             if(animation != null)
                 animation.Play();
         }
+
+       
 
     }
 

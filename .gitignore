@@ -47,3 +47,4 @@ Assets/scenes/sandboxes/*.unity*
 .vs/ui-animation-framework/v15/Server/sqlite3/db.lock
 .vs/ui-animation-framework/v15/Server/sqlite3/storage.ide-shm
 .vs/ui-animation-framework/v15/Server/sqlite3/storage.ide
+.vs/

@@ -582,9 +582,9 @@ RectTransform:
   m_Father: {fileID: 430859336}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 416.31082, y: -39.80573}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 258.363, y: 276}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1885246538
@@ -601,18 +601,24 @@ MonoBehaviour:
   m_animationList:
   - m_name: Enter
     m_moveAnimation:
-      m_length: 3
-      m_ease: 0
+      m_ease: 38
       m_path:
-      - {x: 0, y: 0}
-      - {x: 1, y: 1}
-      - {x: 0, y: 0.48}
-      - {x: 0.36, y: 0}
-      - {x: 0.36, y: 1}
-      - {x: 0, y: 0}
+      - {x: 0.74, y: 0.78}
+      - {x: 0.93, y: 0.4}
+      - {x: 0.27, y: 0.58}
+      - {x: 0.3, y: 0.64}
+      - {x: 1.06, y: -0.81}
+      - {x: 0.7, y: 0.96}
+      m_pathTime:
+      - 0.2702758
+      - 0.6933604
+      - 0.04267513
+      - 1.0583327
+      - 0.935356
     m_useMoveAnimation: 1
     m_playOnAwake: 1
-    m_loop: 1
+    m_loop: 0
+    m_length: 3
 --- !u!114 &1885246539
 MonoBehaviour:
   m_ObjectHideFlags: 0

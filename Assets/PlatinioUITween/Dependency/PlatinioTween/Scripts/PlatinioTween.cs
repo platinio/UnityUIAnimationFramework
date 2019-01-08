@@ -37,8 +37,12 @@ namespace Platinio.TweenEngine
             }
         }
 
+        #if UNITY_EDITOR
         private void EditorUpdate()
-        {           
+        {
+            if (EditorApplication.isPlaying)
+                return;
+
             float deltaTime = (float)UnityEditor.EditorApplication.timeSinceStartup - m_lastEditorTime;
             m_lastEditorTime = (float)UnityEditor.EditorApplication.timeSinceStartup;
 
@@ -48,6 +52,8 @@ namespace Platinio.TweenEngine
             }
 
         }
+        #endif
+
 
         #endregion
 
