@@ -210,6 +210,50 @@ namespace Platinio.TweenEngine
 
         #endregion
 
+        public enum UIAnchor
+        {
+            UpperLeft,
+            UpperCenter,
+            UpperRight,
+            MiddleLeft,
+            MiddleCenter,
+            MiddleRight,
+            LowerLeft,
+            LowerCenter,
+            LowerRight
+        }
+        
+        public static Vector2 FromAbsolutePositionToCanvasPosition(Vector2 v, RectTransform rect, RectTransform canvas , UIAnchor anchor = UIAnchor.MiddleCenter)
+        {
+            Vector2 centerAnchor = (rect.anchorMax + rect.anchorMin) * 0.5f;
+            Vector2 diff = centerAnchor - v;
+            Debug.Log("Position " + v);
+            Debug.Log("Center Anchor: " + centerAnchor );
+            Debug.Log("Canvas Size Delta: " + canvas.sizeDelta);
+            return Vector2.Scale( v - centerAnchor, canvas.sizeDelta ) + Vector2.Scale( rect.rect.size, AnchorOffSet( anchor ) );
+        }
+
+        private static Vector2 AnchorOffSet(UIAnchor anchor)
+        {
+            switch (anchor)
+            {
+                case UIAnchor.UpperLeft:
+                    return new Vector2(0.5f , -0.5f);
+                case UIAnchor.UpperCenter:
+                    return new Vector2( 0.0f, -0.5f );
+
+            }
+
+            return Vector2.zero;
+
+        }
+
+        public static Vector2 FromCanvasPositionToAbsolutePosition(RectTransform rect, RectTransform canvas)
+        {
+            return new Vector2( rect.anchoredPosition.x / canvas.sizeDelta.x, rect.anchoredPosition.y / canvas.sizeDelta.y ) + rect.anchorMin;
+        }
+
+       
     }
 
 }
