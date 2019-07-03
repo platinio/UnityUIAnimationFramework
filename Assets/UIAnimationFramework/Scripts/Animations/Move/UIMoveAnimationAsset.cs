@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Playables;
 using Platinio.TweenEngine;
+using Platinio;
 
 namespace Platinio.UIAnimation
 {
@@ -8,7 +9,7 @@ namespace Platinio.UIAnimation
     {
         [SerializeField] private Vector2 startPosition = Vector3.zero;
         [SerializeField] private Vector2 finalPosition = Vector3.zero;
-        [SerializeField] private PlatinioTween.UIAnchor UIAnchor = PlatinioTween.UIAnchor.LowerCenter;
+        [SerializeField] private UIAnchor UIAnchor = UIAnchor.LowerCenter;
 
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {

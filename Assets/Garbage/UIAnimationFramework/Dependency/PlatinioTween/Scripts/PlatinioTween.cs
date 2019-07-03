@@ -241,6 +241,20 @@ namespace Platinio.TweenEngine
                     return new Vector2(0.5f , -0.5f);
                 case UIAnchor.UpperCenter:
                     return new Vector2( 0.0f, -0.5f );
+                case UIAnchor.UpperRight:
+                    return new Vector2(-0.5f , -0.5f);
+                case UIAnchor.MiddleLeft:
+                    return new Vector2(0.5f , 0.0f);
+                case UIAnchor.MiddleCenter:
+                    return new Vector2(0.0f , 0.0f);
+                case UIAnchor.MiddleRight:
+                    return new Vector2(-0.5f , 0.0f);
+                case UIAnchor.LowerLeft:
+                    return new Vector2(0.5f , 0.5f);
+                case UIAnchor.LowerCenter:
+                    return new Vector2(0.0f, 0.5f);
+                case UIAnchor.LowerRight:
+                    return new Vector2(-0.5f , 0.5f);
 
             }
 

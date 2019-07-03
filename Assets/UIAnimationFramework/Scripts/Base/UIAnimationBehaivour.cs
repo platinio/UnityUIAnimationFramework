@@ -20,12 +20,16 @@ namespace Platinio.UIAnimation
             passedTime = (float) playable.GetTime();
 
             float t = duration - passedTime;
-                       
-            
 
-            EvaluteAtTime(0.0f);
+            Debug.Log("info " );
+            Debug.Log("duration " + duration);
+            Debug.Log("passedTime " + passedTime);
+            Debug.Log("delta " + info.deltaTime);
+            
+            EvaluteAtTime(t);
 
         }
+        
 
         protected abstract void EvaluteAtTime(float t);
 

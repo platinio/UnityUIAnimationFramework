@@ -38,7 +38,7 @@ MonoBehaviour:
   ease: 30
   startPosition: {x: 0, y: 0.5}
   finalPosition: {x: 0, y: 0}
-  UIAnchor: 0
+  UIAnchor: 4
 --- !u!114 &114702080320492190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,7 +60,7 @@ MonoBehaviour:
   - m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 114615520711951144}
-    m_Duration: 2.783333333333333
+    m_Duration: 2.2333333333333334
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114702080320492190}
     m_EaseInDuration: 0
