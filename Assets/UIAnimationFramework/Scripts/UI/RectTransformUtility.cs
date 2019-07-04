@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platinio
 {
-    public enum UIAnchor
+    public enum PivotPreset
     {
         UpperLeft,
         UpperCenter,
@@ -20,7 +20,7 @@ namespace Platinio
 
     public static class RectTransformUtility 
     {
-        public static Vector2 FromAbsolutePositionToCanvasPosition(this RectTransform rect, Vector2 v, RectTransform canvas, UIAnchor anchor = UIAnchor.MiddleCenter)
+        public static Vector2 FromAbsolutePositionToCanvasPosition(this RectTransform rect, Vector2 v, RectTransform canvas, PivotPreset anchor = PivotPreset.MiddleCenter)
         {
             Vector2 centerAnchor = ( rect.anchorMax + rect.anchorMin ) * 0.5f;           
             return Vector2.Scale( v - centerAnchor, canvas.sizeDelta ) + Vector2.Scale( rect.rect.size, GetAnchorOffSet( anchor ) );
@@ -37,27 +37,27 @@ namespace Platinio
             return new Vector2( rect.anchoredPosition.x / canvas.sizeDelta.x, rect.anchoredPosition.y / canvas.sizeDelta.y ) + rect.anchorMin;
         }
 
-        private static Vector2 GetAnchorOffSet(UIAnchor anchor)
+        private static Vector2 GetAnchorOffSet(PivotPreset anchor)
         {
             switch (anchor)
             {
-                case UIAnchor.UpperLeft:
+                case PivotPreset.UpperLeft:
                 return new Vector2( 0.5f, -0.5f );
-                case UIAnchor.UpperCenter:
+                case PivotPreset.UpperCenter:
                 return new Vector2( 0.0f, -0.5f );
-                case UIAnchor.UpperRight:
+                case PivotPreset.UpperRight:
                 return new Vector2( -0.5f, -0.5f );
-                case UIAnchor.MiddleLeft:
+                case PivotPreset.MiddleLeft:
                 return new Vector2( 0.5f, 0.0f );
-                case UIAnchor.MiddleCenter:
+                case PivotPreset.MiddleCenter:
                 return new Vector2( 0.0f, 0.0f );
-                case UIAnchor.MiddleRight:
+                case PivotPreset.MiddleRight:
                 return new Vector2( -0.5f, 0.0f );
-                case UIAnchor.LowerLeft:
+                case PivotPreset.LowerLeft:
                 return new Vector2( 0.5f, 0.5f );
-                case UIAnchor.LowerCenter:
+                case PivotPreset.LowerCenter:
                 return new Vector2( 0.0f, 0.5f );
-                case UIAnchor.LowerRight:
+                case PivotPreset.LowerRight:
                 return new Vector2( -0.5f, 0.5f );
 
             }

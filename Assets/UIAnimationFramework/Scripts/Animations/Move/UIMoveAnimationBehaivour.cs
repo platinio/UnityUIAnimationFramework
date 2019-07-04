@@ -1,26 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Playables;
+﻿using UnityEngine;
 using Platinio.TweenEngine;
-using Platinio;
 
 namespace Platinio.UIAnimation
 {
     public class UIMoveAnimationBehaivour : UIAnimationBehaivour
     {
         public Vector2 startPosition = Vector2.zero;
-        public Vector2 finalPosition = Vector2.zero;
-        public UIAnchor UIAnchor = UIAnchor.UpperLeft;
+        public Vector2 endPosition = Vector2.zero;
+        public Vector2 pivot = Vector2.zero;
+        public PivotPreset pivotPreset = PivotPreset.UpperLeft;
 
         protected override void EvaluteAtTime(float t)
         {
             if (rect != null)
             {
-                Vector3 change = startPosition - finalPosition;
-                //rect.anchoredPosition = PlatinioTween.FromAbsolutePositionToCanvasPosition( Equations.ChangeVector( t, finalPosition, change, duration, ease ) , rect , canvas , UIAnchor);    
-                rect.anchoredPosition = rect.FromAbsolutePositionToCanvasPosition( Equations.ChangeVector( t, finalPosition, change, duration, ease ) , canvas , UIAnchor);
-                Debug.Log("Time " + t);
+                Vector3 change = startPosition - endPosition;
+                Vector3 targetPosition = Equations.ChangeVector( t, endPosition, change, duration, ease );
+
+                if (pivotPreset != PivotPreset.Custom)
+                {
+                    rect.anchoredPosition = rect.FromAbsolutePositionToCanvasPosition( targetPosition, canvas, pivotPreset );
+                }
+                else
+                {
+                    rect.anchoredPosition = rect.FromAbsolutePositionToCanvasPosition( targetPosition, canvas, pivot );
+                }
+                            
             }
             
         }

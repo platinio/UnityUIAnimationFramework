@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.Playables;
-using Platinio.TweenEngine;
-using Platinio;
 
 namespace Platinio.UIAnimation
 {
     public class UIMoveAnimationAsset : UIAnimationAsset
     {
+        [SerializeField] private PivotPreset pivotPreset = PivotPreset.LowerCenter;
+        [SerializeField] private Vector2 pivot = Vector2.zero;
         [SerializeField] private Vector2 startPosition = Vector3.zero;
-        [SerializeField] private Vector2 finalPosition = Vector3.zero;
-        [SerializeField] private UIAnchor UIAnchor = UIAnchor.LowerCenter;
+        [SerializeField] private Vector2 endPosition = Vector3.zero;
+        
+        
 
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
@@ -20,13 +21,14 @@ namespace Platinio.UIAnimation
             Construct(controllerBehaivour , graph);
 
             controllerBehaivour.startPosition = startPosition;
-            controllerBehaivour.finalPosition = finalPosition;
-            controllerBehaivour.UIAnchor = UIAnchor;
+            controllerBehaivour.endPosition = endPosition;
+            controllerBehaivour.pivot = pivot;
+            controllerBehaivour.pivotPreset = pivotPreset;
 
            
             return playable;
         }
-
+                
        
     }
 

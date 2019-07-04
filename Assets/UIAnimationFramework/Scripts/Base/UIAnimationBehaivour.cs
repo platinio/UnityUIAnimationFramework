@@ -21,11 +21,6 @@ namespace Platinio.UIAnimation
 
             float t = duration - passedTime;
 
-            Debug.Log("info " );
-            Debug.Log("duration " + duration);
-            Debug.Log("passedTime " + passedTime);
-            Debug.Log("delta " + info.deltaTime);
-            
             EvaluteAtTime(t);
 
         }

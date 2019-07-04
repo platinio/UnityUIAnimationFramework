@@ -4,18 +4,24 @@ using Platinio.TweenEngine;
 
 namespace Platinio.UIAnimation
 {
-    public abstract class UIAnimationAsset: PlayableAsset
+    public abstract class UIAnimationAsset : PlayableAsset
     {
         [SerializeField] protected ExposedReference<RectTransform> rect;
         [SerializeField] protected ExposedReference<RectTransform> canvas;
         [SerializeField] protected Ease ease = Ease.Linear;
+        [SerializeField] protected RectTransform canvasRect = null;
 
+        public RectTransform Canvas { get { return canvasRect; } }
+
+        
 
         protected void Construct(UIAnimationBehaivour controller , PlayableGraph graph)
         {
             controller.rect = rect.Resolve( graph.GetResolver() );
             controller.ease = ease;
             controller.canvas = canvas.Resolve( graph.GetResolver() );
+
+            canvasRect = canvas.Resolve( graph.GetResolver() );
         }       
     }
 }
