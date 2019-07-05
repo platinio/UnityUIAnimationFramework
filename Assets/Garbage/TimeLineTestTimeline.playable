@@ -37,10 +37,11 @@ MonoBehaviour:
     defaultValue: {fileID: 0}
   ease: 30
   canvasRect: {fileID: 0}
+  rectSaveReference: {fileID: 0}
   pivotPreset: 0
   pivot: {x: 0, y: 0}
-  startPosition: {x: 0.5, y: 0.5}
-  endPosition: {x: 0, y: 0}
+  startPosition: {x: 1.1817907, y: 0.8174747}
+  endPosition: {x: 0.6, y: 0}
 --- !u!114 &114702080320492190
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -16,12 +16,12 @@ namespace Platinio.EditorCode
             ease = serializedObject.FindProperty("ease");
         }
 
-        public void OnEnable()
+        protected virtual void OnEnable()
         {
             SceneView.onSceneGUIDelegate += OnSceneGUI;
         }
 
-        public void OnDisable()
+        protected virtual void OnDisable()
         {
             SceneView.onSceneGUIDelegate -= OnSceneGUI;
         }

@@ -10,8 +10,10 @@ namespace Platinio.UIAnimation
         [SerializeField] protected ExposedReference<RectTransform> canvas;
         [SerializeField] protected Ease ease = Ease.Linear;
         [SerializeField] protected RectTransform canvasRect = null;
+        [SerializeField] protected RectTransform rectSaveReference = null;
 
         public RectTransform Canvas { get { return canvasRect; } }
+        public RectTransform Rect { get { return rectSaveReference; } }
 
         
 
@@ -22,6 +24,7 @@ namespace Platinio.UIAnimation
             controller.canvas = canvas.Resolve( graph.GetResolver() );
 
             canvasRect = canvas.Resolve( graph.GetResolver() );
+            rectSaveReference = rect.Resolve( graph.GetResolver() );
         }       
     }
 }
