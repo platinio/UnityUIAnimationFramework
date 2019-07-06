@@ -9,6 +9,7 @@ namespace Platinio.UIAnimation
         [SerializeField] private Vector2 pivot = Vector2.zero;
         [SerializeField] private Vector2 startPosition = Vector3.zero;
         [SerializeField] private Vector2 endPosition = Vector3.zero;
+        [SerializeField] private bool useCustomPivot = false;
         
         
 
@@ -24,6 +25,7 @@ namespace Platinio.UIAnimation
             controllerBehaivour.endPosition = endPosition;
             controllerBehaivour.pivot = pivot;
             controllerBehaivour.pivotPreset = pivotPreset;
+            controllerBehaivour.useCustomPivot = useCustomPivot;
 
            
             return playable;

@@ -9,6 +9,7 @@ namespace Platinio.UIAnimation
         public Vector2 endPosition = Vector2.zero;
         public Vector2 pivot = Vector2.zero;
         public PivotPreset pivotPreset = PivotPreset.UpperLeft;
+        public bool useCustomPivot = false;
 
         protected override void EvaluteAtTime(float t)
         {
@@ -17,13 +18,13 @@ namespace Platinio.UIAnimation
                 Vector3 change = startPosition - endPosition;
                 Vector3 targetPosition = Equations.ChangeVector( t, endPosition, change, duration, ease );
 
-                if (pivotPreset != PivotPreset.Custom)
+                if (!useCustomPivot)
                 {
-                    rect.anchoredPosition = rect.FromAbsolutePositionToCanvasPosition( targetPosition, canvas, pivotPreset );
+                    rect.anchoredPosition = rect.FromAbsolutePositionToAnchoredPosition( targetPosition, canvas, pivotPreset );
                 }
                 else
                 {
-                    rect.anchoredPosition = rect.FromAbsolutePositionToCanvasPosition( targetPosition, canvas, pivot );
+                    rect.anchoredPosition = rect.FromAbsolutePositionToAnchoredPosition( targetPosition, canvas, pivot );
                 }
                             
             }

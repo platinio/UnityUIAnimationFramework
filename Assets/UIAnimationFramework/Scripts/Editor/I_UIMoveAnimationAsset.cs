@@ -11,6 +11,7 @@ namespace Platinio.EditorCode
         private SerializedProperty endPosition = null;
         private SerializedProperty pivotPreset = null;
         private SerializedProperty pivot = null;
+        private SerializedProperty useCustomPivot = null;
 
         private UIMoveAnimationAsset inspectedScript = null;
 
@@ -24,6 +25,7 @@ namespace Platinio.EditorCode
             endPosition = serializedObject.FindProperty( "endPosition" );
             pivotPreset = serializedObject.FindProperty( "pivotPreset" );
             pivot = serializedObject.FindProperty( "pivot" );
+            useCustomPivot = serializedObject.FindProperty("useCustomPivot");
 
             inspectedScript = target as UIMoveAnimationAsset;
             
@@ -32,9 +34,10 @@ namespace Platinio.EditorCode
 
         protected override void CustomInspector()
         {
+            EditorTools.PropertyField(useCustomPivot);
             EditorTools.PropertyField( pivotPreset );
 
-            if (pivotPreset.enumValueIndex == (int) PivotPreset.Custom)
+            if (useCustomPivot.boolValue)
             {
                 EditorTools.PropertyField( pivot );
             }
